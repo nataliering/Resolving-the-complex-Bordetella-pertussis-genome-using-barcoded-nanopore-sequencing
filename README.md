@@ -1,6 +1,4 @@
-# Resolving the complex Bordetella pertussis genome using barcoded nanopore sequencing
-
-## Developing a sequencing pipeline for *Bordetella pertussis* genomes
+# Resolving the complex *Bordetella pertussis* genome using barcoded nanopore sequencing
 
 This page is currently a work-in-progress (mostly due to data upload speed!), but will include:
 - our full methodology, including any homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines
