@@ -6,4 +6,5 @@ This page is currently a work-in-progress (mostly due to data upload speed!), bu
 - extended results and links to full metadata/supplementary files
 - references and other recommended reading
 
+This site was built using [GitHub Pages](https://pages.github.com/).
 [Raw Albacore + Porechop reads] (https://figshare.com/s/4a2a376c8d4d130b3ecb)
