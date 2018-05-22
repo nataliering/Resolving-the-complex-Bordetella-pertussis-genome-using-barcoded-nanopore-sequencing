@@ -17,7 +17,7 @@ Although *B. pertussis* is a monomorphic organism at base level, our single-cont
 
 ## Method
 ### Flow cell trials        
-We ran five different MinION flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells (see table 1). Having established that barcoding would enable the sequencing of multiple strains per flow cell, we took forward highest quality read set (in terms of yield, % identity, etc.) to assembly tests.
+We ran five different MinION flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells (see table 1). Having established that the yield of a single R9.4 flow cell would enable the sequencing of multiple strains per flow cell with the use of barcodes, we took forward highest quality barcoded read set (in terms of yield, % identity, etc.) to assembly tests.
 
 **Table 1: Flow cell trials**
 
@@ -30,7 +30,7 @@ We ran five different MinION flow cell trials between 2015 and 2017, using both 
 |June 2017|R9.4|1D Native barcoding genomic DNA (EXP-NBD103 and SQK-LSK108)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 
 
-### Assembler testing                 
+### Assembler testing - long-read-only                 
 We used concurrent basecalling by MinKNOW to produce fastq files from the raw fast5s throughout our native barcoded sequencing run. The raw fastq files were then demultiplexed using [Porechop v.0.2.1](https://github.com/rrwick/Porechop).
 
 The reads for one of our barcoded strains, UK36, were used to identify the best assembly strategy for our *B. pertussis* data.
@@ -82,7 +82,34 @@ We exhaustively tested every possible combination of the above options. Assembli
 |27|No|100x|Yes|5|No|
 |28|No|100x|Yes|Best|Yes|
 
+### Assembler testing - hybrid
+If they are available, including highly-accurate Illumina short reads should improve the accuracy of a long read assembly. For the five strains we sequenced, previously published Illumina reads were available from the NCBI's SRA (table 3).
 
+|*B. pertussis* strain|SRA ID|
+|---------------------|------|
+|UK36| ERR212376|
+|UK38| ERR212378|
+|UK39| ERR212379|
+|UK48| ERR212388|
+|UK76| ERR316415|
 
+**Table 3: SRA IDs of Illumina reads generated in 2012/13**
 
-[Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)
+### Raw read sets
+[Raw MinKNOW + Porechop reads]()                     
+[Raw Albacore only reads]()                             
+[Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)                      
+
+### Processed read sets
+[MinKNOW Canu-corrected reads]()                     
+[Albacore + Porechop Canu-corrected reads]()                    
+[MinKNOW Filtlong 40X reads]()                      
+[MinKNOW Filtlong 100X reads]()                              
+
+### Draft assemblies
+[UK36 MinKNOW assemblies]()               
+[UK36 Albacore assemblies]()
+
+### Final assemblies
+[Long-read-only assemblies]()               
+[Hybrid assemblies]()
