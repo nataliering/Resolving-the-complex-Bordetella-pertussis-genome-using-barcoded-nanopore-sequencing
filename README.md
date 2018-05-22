@@ -101,7 +101,7 @@ Again, we tested all possible combinations of these options, using the best opti
 
 
 
-**Table 4:  hybrid combinations trialled. N.B. The results of the first SPAdes trial were so bad, no further polishing was attempted**
+**Table 4:  hybrid combinations trialled. N.B. The results of the first SPAdes trial were so poor that no further polishing was attempted**
 
 |#|Pre-correction|Read filtering|Assembler|Short reads|Racon|Nanopolish|Pilon|
 |-|--------------|--------------|---------|-----------|-----|----------|-----|
