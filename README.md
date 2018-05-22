@@ -139,12 +139,12 @@ We compared our raw nanopore reads to the *B. pertussis* reference strain, Toham
 
 Each set of reads was compared first to the Tohama I genome using BWA MEM followed by Samtools Stats to generate an "error rate", then to the ABySS genome using the same process.
 
-[raw_identity](Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/raw_error) runs this process, given a reference genome and the raw reads for comparison. This outputs several files, including a .stats file. One of the metrics reported in the .stats file is error rate. This, multiplied by 100, gives % error. raw_identity requires BWA and samtools to be available in your PATH.
+[raw_identity](Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/raw_error) runs this process, given a reference genome and the raw reads for comparison. This outputs several files, including a .stats file. One of the metrics reported in the .stats file is error rate. This, multiplied by 100, gives % error. raw_identity requires [BWA](http://bio-bwa.sourceforge.net/) and [samtools](https://github.com/samtools/samtools) to be available in your PATH.
 
 ### Assessing assembly accuracy
 To assess the % identity of our draft assemblies, we used a method developed by Wick et al. (2017) [2]. This method used their [chop_up_assembly.py](https://github.com/rrwick/Basecalling-comparison/blob/master/chop_up_assembly.py) and [read_length_identity.py](https://github.com/rrwick/Basecalling-comparison/blob/master/read_length_identity.py) scripts to assess the % identity of 10kb sections of each assembly. 
 
-Our shell script, [assembly_identity](Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/assembly_identity), runs all the required steps of this process, and outputs a .txt file giving the mean % identity for the whole assembly. assembly_identity requires chop_up_assembly.py, read_length_identity.py, Minimap2 and Python3 to be available in your PATH.
+Our shell script, [assembly_identity](Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/assembly_identity), runs all the required steps of this process, and outputs a .txt file giving the mean % identity for the whole assembly. assembly_identity requires chop_up_assembly.py, read_length_identity.py, [Minimap2](https://github.com/lh3/minimap2) and Python3 to be available in your PATH.
 
 ### Results
 
