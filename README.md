@@ -146,7 +146,7 @@ To assess the % identity of our draft assemblies, we used a method developed by 
 
 Our shell script, [assembly_identity](Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/assembly_identity), runs all the required steps of this process, and outputs a .txt file giving the mean % identity for the whole assembly. assembly_identity requires chop_up_assembly.py, read_length_identity.py, [Minimap2](https://github.com/lh3/minimap2) and Python3 to be available in your PATH.
 
-### Results
+## Results
 
 Full results from all assembler combinations for both MinKNOW and Albacore basecalled reads can be viewed/downloaded [here](https://figshare.com/s/8cab70ab692ef95ce794).
 
@@ -170,6 +170,6 @@ Full results from all assembler combinations for both MinKNOW and Albacore basec
 [Long-read-only assemblies]()               
 [Hybrid assemblies]()
 
-### References
+## References
 1. [Sealey KL, Harris SR, Fry NK, Hurst LD, Gorringe AR et al. Genomic analysis of isolates from the United Kingdom 2012 pertussis outbreak reveals that vaccine antigen genes are unusually fast evolving. The Journal of infectious diseases 2015;212(2):294-301](https://academic.oup.com/jid/article/212/2/294/890134])
 2. [Wick RR, Judd LM, Holt KE. Comparison of Oxford Nanopore basecalling tools. 2017.](https://github.com/rrwick/Basecalling-comparison)
