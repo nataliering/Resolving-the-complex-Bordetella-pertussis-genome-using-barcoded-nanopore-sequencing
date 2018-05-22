@@ -128,7 +128,7 @@ Again, we tested all possible combinations of these options, using the best opti
 
 ### Raw read sets
 [Raw MinKNOW + Porechop reads]()                     
-[Raw Albacore only reads]()                             
+[Raw Albacore only reads](https://figshare.com/s/c72019ace881bfa69593)                             
 [Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)                      
 
 ### Processed read sets
