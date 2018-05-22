@@ -1,8 +1,9 @@
 # Resolving the complex *Bordetella pertussis* genome using barcoded nanopore sequencing
 **Natalie Ring, Jonathan Abrahams, Andrew Preston \& Stefan Bagby**
+
 Department of Biology and Biochemistry, University of Bath
 
-###Abstract
+### Abstract
 *Bordetella pertussis*, the pathogen responsible for whooping cough, has a complex genome with high GC content and hundreds of repetitive sections, each longer than 1kb. While short-read sequencing has been unable to resolve the structure of the genome, long-read sequencing could enable accurate single-contig *B. pertussis* assembly.  
 
 
