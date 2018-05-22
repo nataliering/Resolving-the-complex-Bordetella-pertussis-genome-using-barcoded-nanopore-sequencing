@@ -9,6 +9,8 @@ This repository is currently a work-in-progress (mostly due to data upload speed
 - [ ] extended results and links to full metadata/supplementary files
 - [ ] references and other recommended reading
 
+N.B. not all hyperlinks are functional as yet
+
 ## Abstract
 *Bordetella pertussis*, the pathogen responsible for whooping cough, has a complex genome with high GC content and hundreds of repetitive sections, each longer than 1kb. While short-read sequencing has been unable to resolve the structure of the genome, long-read sequencing could enable accurate single-contig *B. pertussis* assembly.  
 
@@ -131,6 +133,13 @@ N.B. The latest Racon release also facilitates polishing with short reads. We co
 Whilst we were conducting our assembler comparisons, it became apparent that alternative basecallers may produce significantly more accurate data that the intrinsic MinKNOW basecalling [2]. Consequently, we returned to our raw fast5 files, and re-basecalled them using Albacore v2.1.3. This version of Albacore is capable of demultiplexing barcoded samples; we also re-demultiplexed the Albacore fastq reads using Porechop, only keeping those reads which were placed into the same barcode bins by both demultiplexing tools. This should have minimised barcode contamination between our samples.
 
 Having determined that the Albacore + Porechop reads had a lower raw error rate than the MinKNOW + Porechop reads, we re-conducted all assembler testing detailed above, in case the more accurate raw reads were better processed by a different tool.
+
+### Assessing raw read accuracy
+We compared our raw nanopore reads to the *B. pertussis* reference strain, Tohama I, and an Illumina-only assembly for each strain respectively. The Illumina-only assembly was generated using [ABySS](https://github.com/bcgsc/abyss) and the previously downloaded reads from the SRA, whilst the reference genome was downloaded from the [NCBI](https://www.ncbi.nlm.nih.gov/genome/1008?genome_assembly_id=170243) (RefSeq accession: NC_002929.2). 
+
+Each set of reads was compared first to the Tohama I genome using BWA MEM followed by Samtools Stats to generate an "error rate", then to the ABySS genome using the same process.
+
+
 
 ### Results
 
