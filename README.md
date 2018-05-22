@@ -38,7 +38,6 @@ We identified the most widely used/recommended community-built *de novo* assembl
 - [ABruijn (now called Flye)](https://github.com/fenderglass/Flye)
 - [Canu](https://github.com/marbl/canu)
 - [Miniasm with Minimap](https://github.com/lh3/miniasm)
-- [SPAdes](http://cab.spbu.ru/software/spades/)
 - [Unicycler](https://github.com/rrwick/Unicycler)
 
 Alongside this variety of assembly tools, we also tested:
@@ -47,7 +46,7 @@ Alongside this variety of assembly tools, we also tested:
 - read filtering from the ~400x coverage generated down to the best 100x coverage with Filtlong
 - polishing with 1 to 5 rounds of [Racon](https://github.com/isovic/racon) and/or a single round of [Nanopolish](https://github.com/jts/nanopolish)
 
-We exhaustively tested every possible combination of the above options. Assemblies can continue to improve with multiple rounds of Racon polishes, so for the first few trials we continued to polish each assembly until no further improvement was seen. After these first few trials, it was apparent that most assemblies had peaked by the fitfth round of Racon polishing; for all subsequent trials we performed 5 rounds of Racon polishing. This meant that for each assembly tool, we produced 28 draft assemblies (see table 2).
+We exhaustively tested every possible combination of the above options. Assemblies can continue to improve with multiple rounds of Racon polishes, so for the first few trials we continued to polish each assembly until no further improvement was seen. After these first few trials, it was apparent that most assemblies had peaked by the fitfth round of Racon polishing; for all subsequent trials we performed 5 rounds of Racon polishing. This meant that for each assembly tool option, we produced 28 draft assemblies (see table 2).
 
 **Table 2: exhaustively testing all possible combinations of assembly tool, read correction, read filtering, Racon polishing and Nanopolishing**
 
@@ -83,7 +82,14 @@ We exhaustively tested every possible combination of the above options. Assembli
 |28|No|100x|Yes|Best|Yes|
 
 ### Assembler testing - hybrid
-If they are available, including highly-accurate Illumina short reads should improve the accuracy of a long read assembly. For the five strains we sequenced, previously published Illumina reads were available from the NCBI's SRA (table 3).
+If they are available, including highly-accurate Illumina short reads should improve the accuracy of a long read assembly. For the five strains we sequenced, previously published Illumina reads were available from the NCBI's SRA (table 3). There are three potential ways to produce a hybrid assembly:
+1. Assemble with short reads, scaffold with long reads (e.g. [SPAdes](http://cab.spbu.ru/software/spades/))
+2. Assemble with long reads, polish with short reads (e.g. Canu + [Pilon](https://github.com/broadinstitute/pilon)
+3. A combination of 1 and 2 (e.g. Unicycler, which combines Illumina contigs produced with SPAdes with Nanopore long reads and re-assembles them all using Miniasm, followed by long-read-polishing with Racon, then short-read-polishing with Pilon).
+
+Again, we tested all possible combinations of these options, using the best option for each assembler from the long-read-only tests. Like Racon, we found from the first few tests that assembly accuracy peaked before the fifth Pilon round. This produced another ? draft assemblies (table 4).
+
+**Table 3: SRA IDs of Illumina reads generated in 2012/13**
 
 |*B. pertussis* strain|SRA ID|
 |---------------------|------|
@@ -93,7 +99,32 @@ If they are available, including highly-accurate Illumina short reads should imp
 |UK48| ERR212388|
 |UK76| ERR316415|
 
-**Table 3: SRA IDs of Illumina reads generated in 2012/13**
+
+
+**Table 4:  hybrid combinations trialled. N.B. The results of the first SPAdes trial were so bad, no further polishing was attempted**
+
+|#|Pre-correction|Read filtering|Assembler|Short reads|Racon|Nanopolish|Pilon|
+|-|--------------|--------------|---------|-----------|-----|----------|-----|
+|1|No|No|Canu|No|Best|Yes|1|
+|2|No|No|Canu|No|Best|Yes|2|
+|3|No|No|Canu|No|Best|Yes|3|
+|4|No|No|Canu|No|Best|Yes|4|
+|5|No|No|Canu|No|Best|Yes|5|
+|6|Yes|No|Flye|No|No|Yes|1|
+|7|Yes|No|Flye|No|No|Yes|2|
+|8|Yes|No|Flye|No|No|Yes|3|
+|9|Yes|No|Flye|No|No|Yes|4|
+|10|Yes|No|Flye|No|No|Yes|5|
+|11|Yes|No|Miniasm + Minimap|No|Best|Yes|1|
+|12|Yes|No|Miniasm + Minimap|No|Best|Yes|2|
+|13|Yes|No|Miniasm + Minimap|No|Best|Yes|3|
+|14|Yes|No|Miniasm + Minimap|No|Best|Yes|4|
+|15|Yes|No|Miniasm + Minimap|No|Best|Yes|5|
+|16|Yes|No|Unicycler|Yes|No|No|No|
+|17|Yes|No|Unicycler|Yes|No|Yes|No|
+|18|Yes|No|SPAdes|Yes|No|No|No|
+
+
 
 ### Raw read sets
 [Raw MinKNOW + Porechop reads]()                     
