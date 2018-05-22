@@ -1,0 +1,22 @@
+#!/bin/bash
+ 
+if [ "$1" == "-h" ] ; then
+    echo "Usage: raw_identity <reference.fasta> <in.fasta> <out_prefix(will be .stats)>"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: raw_identity <reference.fasta> <in.fasta> <out_prefix(will be .stats)>"
+    exit 0
+fi
+ 
+echo "Executing BWA MEM for $2 " 
+bwa mem -x ont2d -t 8 $1 $2 > $3.sam 
+echo "Done with BWA MEM, executing conversion from .sam to .bam " 
+samtools view -b -o $3.bam $3.sam 
+echo "Sorting .bam " 
+samtools sort -o $3.sorted.bam $3.bam 
+echo "Executing samtools stats for $3.sorted.bam" 
+samtools stats $3.sorted.bam > $3.stats
+
+exit 0 
