@@ -84,7 +84,7 @@ We exhaustively tested every possible combination of the above options. Assembli
 ### Assembler testing - hybrid
 If they are available, including highly-accurate Illumina short reads should improve the accuracy of a long read assembly. For the five strains we sequenced, previously published Illumina reads were available from the NCBI's SRA (table 3). There are three potential ways to produce a hybrid assembly:
 1. Assemble with short reads, scaffold with long reads (e.g. [SPAdes](http://cab.spbu.ru/software/spades/))
-2. Assemble with long reads, polish with short reads (e.g. Canu + [Pilon](https://github.com/broadinstitute/pilon)
+2. Assemble with long reads, polish with short reads (e.g. Canu + [Pilon](https://github.com/broadinstitute/pilon))
 3. A combination of 1 and 2 (e.g. Unicycler, which combines Illumina contigs produced with SPAdes with Nanopore long reads and re-assembles them all using Miniasm, followed by long-read-polishing with Racon, then short-read-polishing with Pilon).
 
 Again, we tested all possible combinations of these options, using the best option for each assembler from the long-read-only tests. Like Racon, we found from the first few tests that assembly accuracy peaked before the fifth Pilon round. This produced another 18 draft assemblies (table 4). 
