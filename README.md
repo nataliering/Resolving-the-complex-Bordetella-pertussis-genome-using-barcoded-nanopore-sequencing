@@ -4,7 +4,7 @@
 *Department of Biology and Biochemistry, University of Bath*
 
 This repository is currently a work-in-progress (mostly due to data upload speed!), but will support both our paper (once submitted) and poster presentation at London Calling 2018. Content will include:
-- [ ] our full methodology, including any homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines
+- [ ] our full methodology, including any homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines (hybrid or long-read-only)
 - [ ] links to our data repository, including raw and processed reads (fastq), and genome assembler test intermediates and final assemblies
 - [ ] extended results and links to full metadata/supplementary files
 - [ ] references and other recommended reading
@@ -16,24 +16,71 @@ We have used barcoded MinION sequencing to resolve genome structures of five UK 
 Although *B. pertussis* is a monomorphic organism at base level, our single-contig assemblies reveal genome-level arrangement differences. Our long-read-based pipeline to assemble *B. pertussis* genomes consistently into single contigs could therefore help to explain phenotypes which otherwise have no obvious genotypic cause.
 
 ## Method
-We ran five different flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells:
-- July 2015, R7, 2D Genomic DNA (deprecated): *B. pertussis* UK48 and UK76
-- April 2017, R9, 1D Genomic DNA by ligation (SQK-LSK108): *B. pertussis* UK76
-- June 2017, R9.4, 1D Low input genomic DNA with PCR (SQK-LSK108): *B. pertussis* 18323
-- June 2017, R9.4, 1D Low input genomic DNA by PCR barcoding (SQK-LWB001): *B. pertussis* UK36, UK38, UK39, UK48 and UK76 
-- June 2017, R9.4, 1D Native barcoding genomic DNA (with EXP-NBD103 and SQK-LSK108):  *B. pertussis* UK36, UK38, UK39, UK48 and UK76
-
-|Date|Flow cell chemistry|Library Prep|*B. pertussis* strain(s)|
-|----|-------------------|------------|------------------------|
-|July 2015|R7|2D Genomic DNA (deprecated)| UK48, UK76|
-|March 2017|R9|1D Genomic DNA by ligation (SQK-LSK108)| UK76|
-|June 2017|R9.4|1D Low input genomic DNA with PCR (SQK-LSK108)| 18323|
-|June 2017|R9.4|1D Low input genomic DNA by PCR barcoding (SQK-LWB001)| UK36, UK38, UK39, UK48, UK76|
-|June 2017|R9.4|1D Native barcoding genomic DNA (EXP-NBD103 and SQK-LSK108)| UK36, UK38, UK39, UK48, UK76|
+#### Flow cell trials        
+We ran five different MinION flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells (see table 1). Having established that barcoding would enable the sequencing of multiple strains per flow cell, we took forward highest quality read set (in terms of yield, % identity, etc.) to assembly tests.
 
 
+|Date|Flow cell chemistry|Library Prep|*B. pertussis* strain(s)|Basecaller|
+|----|-------------------|------------|------------------------|----------|
+|July 2015|R7|2D Genomic DNA (deprecated)| UK48, UK76|Metrichor|
+|March 2017|R9|1D Genomic DNA by ligation (SQK-LSK108)| UK76|Albacore (early version)|
+|June 2017|R9.4|1D Low input genomic DNA with PCR (SQK-LSK108)| 18323|MinKNOW v.Jun17|
+|June 2017|R9.4|1D Low input genomic DNA by PCR barcoding (SQK-LWB001)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
+|June 2017|R9.4|1D Native barcoding genomic DNA (EXP-NBD103 and SQK-LSK108)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 
+**Table 1: Flow cell trials**
 
+#### Assembler testing                 
+We used concurrent basecalling by MinKNOW to produce fastq files from the raw fast5s throughout our native barcoded sequencing run. The raw fastq files were then demultiplexed using [Porechop v.0.2.1](https://github.com/rrwick/Porechop).
+
+The reads for one of our barcoded strains, UK36, were used to identify the best assembly strategy for our *B. pertussis* data.
+We identified the most widely used/recommended community-built *de novo* assembly tools suitable for long reads as:
+- [ABruijn (now called Flye)](https://github.com/fenderglass/Flye)
+- [Canu](https://github.com/marbl/canu)
+- [Miniasm with Minimap](https://github.com/lh3/miniasm)
+- [SPAdes](http://cab.spbu.ru/software/spades/)
+- [Unicycler](https://github.com/rrwick/Unicycler)
+
+Alongside this variety of assembly tools, we also tested:
+- pre-assembly read correction with Canu vs no pre-assembly read correction
+- read filtering from the ~400x coverage generated down to the best 40x coverage with [Filtlong](https://github.com/rrwick/Filtlong)
+- read filtering from the ~400x coverage generated down to the best 100x coverage with Filtlong
+- polishing with 1 to 5 rounds of [Racon](https://github.com/isovic/racon) and/or a single round of [Nanopolish](https://github.com/jts/nanopolish)
+
+We exhaustively tested every possible combination of the above options. Assemblies can continue to improve with multiple rounds of Racon polishes, so for the first few trials we continued to polish each assembly until no further improvement was seen. After these first few trials, it was apparent that most assemblies had peaked by the fitfth round of Racon polishing; for all subsequent trials we performed 5 rounds of Racon polishing. This meant that for each assembly tool, we produced 28 draft assemblies (see table 2).
+
+|#|Pre-correction|Read filtering|Assembly|Racon|Nanopolish|
+|-|--------------|--------------|--------|-----|----------|
+|1|No|No|Yes|No|No|
+|2|No|No|Yes|1|No|
+|3|No|No|Yes|2|No|
+|4|No|No|Yes|3|No|
+|5|No|No|Yes|4|No|
+|6|No|No|Yes|5|No|
+|7|No|No|Yes|Best|Yes|
+|8|Yes|No|Yes|No|No|
+|9|Yes|No|Yes|1|No|
+|10|Yes|No|Yes|2|No|
+|11|Yes|No|Yes|3|No|
+|12|Yes|No|Yes|4|No|
+|13|Yes|No|Yes|5|No|
+|14|Yes|No|Yes|Best|Yes|
+|15|No|40x|Yes|No|No|
+|16|No|40x|Yes|1|No|
+|17|No|40x|Yes|2|No|
+|18|No|40x|Yes|3|No|
+|19|No|40x|Yes|4|No|
+|20|No|40x|Yes|5|No|
+|21|No|40x|Yes|Best|Yes|
+|22|No|100x|Yes|No|No|
+|23|No|100x|Yes|1|No|
+|24|No|100x|Yes|2|No|
+|25|No|100x|Yes|3|No|
+|26|No|100x|Yes|4|No|
+|27|No|100x|Yes|5|No|
+|28|No|100x|Yes|Best|Yes|
+
+**Table 2: exhaustively testing all possible combinations of assembly tool, read correction, read filtering, Racon polishing and Nanopolishing**
 
 
 [Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)
