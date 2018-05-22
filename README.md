@@ -9,7 +9,7 @@ This repository is currently a work-in-progress (mostly due to data upload speed
 - [ ] extended results and links to full metadata/supplementary files
 - [ ] references and other recommended reading
 
-N.B. not all hyperlinks are functional as yet
+N.B. not all hyperlinks are functional as yet (22.05.2018)
 
 ## Abstract
 *Bordetella pertussis*, the pathogen responsible for whooping cough, has a complex genome with high GC content and hundreds of repetitive sections, each longer than 1kb. While short-read sequencing has been unable to resolve the structure of the genome, long-read sequencing could enable accurate single-contig *B. pertussis* assembly.  
