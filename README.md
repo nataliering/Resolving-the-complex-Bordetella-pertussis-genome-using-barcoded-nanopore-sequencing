@@ -129,7 +129,7 @@ N.B. The latest Racon release also facilitates polishing with short reads. We co
 
 ### Results
 
-Full results from all assembler combinations can be downloaded [here](https://figshare.com/s/8cab70ab692ef95ce794).
+Full results from all assembler combinations can be viewed/downloaded [here](https://figshare.com/s/8cab70ab692ef95ce794).
 
 
 ### Raw read sets
