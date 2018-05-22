@@ -3,7 +3,7 @@
 **Natalie Ring, Jonathan Abrahams, Andrew Preston \& Stefan Bagby**      
 *Department of Biology and Biochemistry, University of Bath*
 
-This repository is currently a work-in-progress (mostly due to data upload speed!), but will support both our paper (once submitted) and poster presentation at London Calling 2018. Content will include:
+This repository is currently a work-in-progress (mostly due to data upload speed!), but will support our paper (once submitted), as well as a poster presentation at London Calling 2018. Content will include:
 - [ ] our full methodology, including any homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines (hybrid or long-read-only)
 - [ ] links to our data repository, including raw and processed reads (fastq), and genome assembler test intermediates and final assemblies
 - [ ] extended results and links to full metadata/supplementary files
