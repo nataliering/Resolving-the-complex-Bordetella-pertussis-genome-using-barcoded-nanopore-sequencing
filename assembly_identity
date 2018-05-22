@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: identity_runner <in_prefix> <reference.fasta> <out_prefix(will be .txt)>"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: identity_runner <in_prefix> <reference.fasta> <out_prefix(will be .txt)>"
+    exit 0
+fi
+
+echo "Chopping up assembly "
+chop_up_assembly.py $1.fasta 10000 > $1.chopped.fasta
+echo "Executing minimap2 & read_length_identity.py "
+minimap2 -k12 -t8 -c $2 $1.chopped.fasta > $1.chopped.alignment
+python3 read_length_identity.py $1.chopped.fasta $1.chopped.alignment > $1.identity
+mean=`awk '{ total += $3 } END {print total/NR }' $1.identity`
+echo "$1" >> $3.txt
+echo "Mean identity is $mean" >> $3.txt
+echo "" >> $3.txt
