@@ -84,26 +84,14 @@ We exhaustively tested every possible combination of the above options. Assembli
 |28|No|100x|Yes|Best|Yes|
 
 ### Assembler testing - hybrid
-If they are available, including highly-accurate Illumina short reads should improve the accuracy of a long read assembly. For the five strains we sequenced, previously published Illumina reads were available from the NCBI's [SRA](https://www.ncbi.nlm.nih.gov/sra) (table 3) [1]. There are three potential ways to produce a hybrid assembly:
+If they are available, including highly-accurate Illumina short reads should improve the accuracy of a long read assembly. For the five strains we sequenced, previously published Illumina reads were available from the NCBI's [SRA](https://www.ncbi.nlm.nih.gov/sra) [1]. See our [metadata table](https://figshare.com/s/8cab70ab692ef95ce794) for full SRA details for each strain. There are three potential ways to produce a hybrid assembly:
 1. Assemble with short reads, scaffold with long reads (e.g. [SPAdes](http://cab.spbu.ru/software/spades/))
 2. Assemble with long reads, polish with short reads (e.g. Canu + [Pilon](https://github.com/broadinstitute/pilon))
 3. A combination of 1 and 2 (e.g. Unicycler, which combines Illumina contigs produced with SPAdes with Nanopore long reads and re-assembles them all using Miniasm, followed by long-read-polishing with Racon, then short-read-polishing with Pilon).
 
-Again, we tested all possible combinations of these options, using the best option for each assembler from the long-read-only tests. Like Racon, we found from the first few tests that assembly accuracy peaked before the fifth Pilon round. This produced another 18 draft assemblies (table 4). 
+Again, we tested all possible combinations of these options, using the best option for each assembler from the long-read-only tests. Like Racon, we found from the first few tests that assembly accuracy peaked before the fifth Pilon round. This produced another 18 draft assemblies (table 3). 
 
-**Table 3: SRA IDs of Illumina reads generated in 2012/13**
-
-|*B. pertussis* strain|SRA ID|
-|---------------------|------|
-|UK36| ERR212376|
-|UK38| ERR212378|
-|UK39| ERR212379|
-|UK48| ERR212388|
-|UK76| ERR316415|
-
-
-
-**Table 4:  hybrid combinations trialled. N.B. The results of the first SPAdes trial were so poor that no further polishing was attempted**
+**Table 3:  hybrid combinations trialled. N.B. The results of the first SPAdes trial were so poor that no further polishing was attempted**
 
 |#|Pre-correction|Read filtering|Assembler|Short reads|Racon|Nanopolish|Pilon|
 |-|--------------|--------------|---------|-----------|-----|----------|-----|
