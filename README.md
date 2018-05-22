@@ -87,7 +87,7 @@ If they are available, including highly-accurate Illumina short reads should imp
 2. Assemble with long reads, polish with short reads (e.g. Canu + [Pilon](https://github.com/broadinstitute/pilon)
 3. A combination of 1 and 2 (e.g. Unicycler, which combines Illumina contigs produced with SPAdes with Nanopore long reads and re-assembles them all using Miniasm, followed by long-read-polishing with Racon, then short-read-polishing with Pilon).
 
-Again, we tested all possible combinations of these options, using the best option for each assembler from the long-read-only tests. Like Racon, we found from the first few tests that assembly accuracy peaked before the fifth Pilon round. This produced another ? draft assemblies (table 4).
+Again, we tested all possible combinations of these options, using the best option for each assembler from the long-read-only tests. Like Racon, we found from the first few tests that assembly accuracy peaked before the fifth Pilon round. This produced another 18 draft assemblies (table 4). 
 
 **Table 3: SRA IDs of Illumina reads generated in 2012/13**
 
@@ -124,6 +124,12 @@ Again, we tested all possible combinations of these options, using the best opti
 |17|Yes|No|Unicycler|Yes|No|Yes|No|
 |18|Yes|No|SPAdes|Yes|No|No|No|
 
+
+N.B. The latest Racon release also facilitates polishing with short reads. We compared multiple rounds of Racon short-read-polishing with the respective Pilon short-read-polishing rounds for several of our draft assemblies, and found minimal difference. Consequently, we did not add a "Racon short-read" polishing option to our hybrid tests.
+
+### Results
+
+Full results from all assembler combinations can be downloaded [here](https://figshare.com/s/8cab70ab692ef95ce794).
 
 
 ### Raw read sets
