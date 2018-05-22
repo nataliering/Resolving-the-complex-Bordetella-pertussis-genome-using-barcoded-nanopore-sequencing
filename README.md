@@ -16,9 +16,10 @@ We have used barcoded MinION sequencing to resolve genome structures of five UK 
 Although *B. pertussis* is a monomorphic organism at base level, our single-contig assemblies reveal genome-level arrangement differences. Our long-read-based pipeline to assemble *B. pertussis* genomes consistently into single contigs could therefore help to explain phenotypes which otherwise have no obvious genotypic cause.
 
 ## Method
-#### Flow cell trials        
+### Flow cell trials        
 We ran five different MinION flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells (see table 1). Having established that barcoding would enable the sequencing of multiple strains per flow cell, we took forward highest quality read set (in terms of yield, % identity, etc.) to assembly tests.
 
+**Table 1: Flow cell trials**
 
 |Date|Flow cell chemistry|Library Prep|*B. pertussis* strain(s)|Basecaller|
 |----|-------------------|------------|------------------------|----------|
@@ -28,9 +29,8 @@ We ran five different MinION flow cell trials between 2015 and 2017, using both 
 |June 2017|R9.4|1D Low input genomic DNA by PCR barcoding (SQK-LWB001)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 |June 2017|R9.4|1D Native barcoding genomic DNA (EXP-NBD103 and SQK-LSK108)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 
-**Table 1: Flow cell trials**
 
-#### Assembler testing                 
+### Assembler testing                 
 We used concurrent basecalling by MinKNOW to produce fastq files from the raw fast5s throughout our native barcoded sequencing run. The raw fastq files were then demultiplexed using [Porechop v.0.2.1](https://github.com/rrwick/Porechop).
 
 The reads for one of our barcoded strains, UK36, were used to identify the best assembly strategy for our *B. pertussis* data.
@@ -48,6 +48,8 @@ Alongside this variety of assembly tools, we also tested:
 - polishing with 1 to 5 rounds of [Racon](https://github.com/isovic/racon) and/or a single round of [Nanopolish](https://github.com/jts/nanopolish)
 
 We exhaustively tested every possible combination of the above options. Assemblies can continue to improve with multiple rounds of Racon polishes, so for the first few trials we continued to polish each assembly until no further improvement was seen. After these first few trials, it was apparent that most assemblies had peaked by the fitfth round of Racon polishing; for all subsequent trials we performed 5 rounds of Racon polishing. This meant that for each assembly tool, we produced 28 draft assemblies (see table 2).
+
+**Table 2: exhaustively testing all possible combinations of assembly tool, read correction, read filtering, Racon polishing and Nanopolishing**
 
 |#|Pre-correction|Read filtering|Assembly|Racon|Nanopolish|
 |-|--------------|--------------|--------|-----|----------|
@@ -80,7 +82,7 @@ We exhaustively tested every possible combination of the above options. Assembli
 |27|No|100x|Yes|5|No|
 |28|No|100x|Yes|Best|Yes|
 
-**Table 2: exhaustively testing all possible combinations of assembly tool, read correction, read filtering, Racon polishing and Nanopolishing**
+
 
 
 [Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)
