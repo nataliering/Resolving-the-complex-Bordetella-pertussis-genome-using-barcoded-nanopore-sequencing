@@ -140,7 +140,7 @@ Full results from all assembler combinations for both MinKNOW and Albacore basec
 
 ## Repository links:
 ### Raw read sets
-[Raw MinKNOW + Porechop reads]()                     
+[Raw MinKNOW + Porechop reads](https://figshare.com/s/5e9cfe31ee97a3591f8c)                     
 [Raw Albacore only reads](https://figshare.com/s/c72019ace881bfa69593)                             
 [Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)                      
 
