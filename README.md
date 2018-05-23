@@ -9,7 +9,7 @@ This repository is currently a work-in-progress (mostly due to data upload speed
 - [ ] extended results and links to full metadata/supplementary files
 - [ ] references and other recommended reading
 
-N.B. not all hyperlinks are functional as yet (22.05.2018)
+N.B. not all data repository links are functional as yet (22.05.2018)
 
 ## Abstract
 *Bordetella pertussis*, the pathogen responsible for whooping cough, has a complex genome with high GC content and hundreds of repetitive sections, each longer than 1kb. While short-read sequencing has been unable to resolve the structure of the genome, long-read sequencing could enable accurate single-contig *B. pertussis* assembly.  
@@ -138,7 +138,7 @@ Our shell script, [assembly_identity](Resolving-the-complex-Bordetella-pertussis
 
 Full results from all assembler combinations for both MinKNOW and Albacore basecalled reads can be viewed/downloaded [here](https://figshare.com/s/8cab70ab692ef95ce794).
 
-## Repository links:
+## Data repository links:
 ### Raw read sets
 [Raw MinKNOW + Porechop reads](https://figshare.com/s/5e9cfe31ee97a3591f8c)                     
 [Raw Albacore only reads](https://figshare.com/s/c72019ace881bfa69593)                             
