@@ -1,0 +1,19 @@
+sort -n | awk '
+  $1 ~ /^[0-9]*(\.[0-9]*)?$/ {
+    a[c++] = $1;
+    sum += $1;
+  }
+  END {
+    ave = sum / c;
+    if( (c % 2) == 1 ) {
+      median = a[ int(c/2) ];
+    } else {
+      median = ( a[c/2] + a[c/2-1] ) / 2;
+    }
+    OFS="\t";
+    { printf ("Total bases:\t""%'"'"'d\n", sum)}
+    { printf ("Number of reads:\t""%'"'"'d\n", c)}
+    { printf ("Mean:\t""%'"'"'d\n", ave)}
+    { printf ("Median:\t""%'"'"'d\n", median)}
+    { printf ("Min:\t""%'"'"'d\n", a[0])}
+    { printf ("Max:\t""%'"'"'d\n", a[c-1])}
