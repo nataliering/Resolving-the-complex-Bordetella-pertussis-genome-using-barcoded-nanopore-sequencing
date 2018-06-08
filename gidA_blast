@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: gidA_blast <draft.fasta> <path/to/gidA.fasta>"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: gidA_blast <draft.fasta> <path/to/gidA.fasta>"
+    exit 0
+fi
+
+makeblastdb -in $1 -dbtype nucl 
+blastn -query $2 -db $1 -evalue 1e-10 -out $1.gidA.bls
+
