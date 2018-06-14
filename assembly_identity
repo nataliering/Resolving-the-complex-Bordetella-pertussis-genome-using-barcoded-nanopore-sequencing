@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [ "$1" == "-h" ] ; then
-    echo "Usage: identity_runner <in_prefix> <reference.fasta> <out_prefix(will be .txt)>"
+    echo "Usage: assembly_identity <in_prefix> <reference.fasta> <out_prefix(will be .txt)>"
     exit 0
 fi
 
 if [ "$1" == "--help" ] ; then
-    echo "Usage: identity_runner <in_prefix> <reference.fasta> <out_prefix(will be .txt)>"
+    echo "Usage: assembly_identity <in_prefix> <reference.fasta> <out_prefix(will be .txt)>"
     exit 0
 fi
 
