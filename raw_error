@@ -11,6 +11,7 @@ if [ "$1" == "--help" ] ; then
 fi
  
 echo "Executing BWA MEM for $2 " 
+bwa index $1
 bwa mem -x ont2d -t 8 $1 $2 > $3.sam 
 echo "Done with BWA MEM, executing conversion from .sam to .bam " 
 samtools view -b -o $3.bam $3.sam 
