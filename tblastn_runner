@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: tblastn_runner <reference.fasta> <query.fasta> <out_prefix(will be .bls)>"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: tblastn_runner <reference.fasta> <query.fasta> <out_prefix(will be .bls)>"
+    exit 0
+fi
+
+makeblastdb -in $1 -dbtype nucl
+tblastn -query $2 -db $1 -evalue 1e-10 -out $3.bls
