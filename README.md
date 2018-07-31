@@ -1,15 +1,14 @@
 # Resolving the complex *Bordetella pertussis* genome using barcoded nanopore sequencing
 
-**Natalie Ring, Jonathan Abrahams, Andrew Preston \& Stefan Bagby**      
-*Department of Biology and Biochemistry, University of Bath*
+**Natalie Ring, Jonathan Abrahams, Miten Jain, Hugh Olsen, Andrew Preston \& Stefan Bagby**      
 
-This repository is currently a work-in-progress (mostly due to data upload speed!), but will support our paper (once submitted), as well as a poster presentation at London Calling 2018. Content will include:
+This repository is currently an almost-complete work-in-progress, but will support our paper. Content will include:
 - [ ] our full methodology, including any homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines (hybrid or long-read-only)
 - [ ] links to our data repository, including raw and processed reads (fastq), and genome assembler test intermediates and final assemblies
 - [ ] extended results and links to full metadata/supplementary files
-- [ ] references and other recommended reading
 
-N.B. not all data repository links are functional as yet (22.05.2018)
+
+
 
 ## Abstract
 *Bordetella pertussis*, the pathogen responsible for whooping cough, has a complex genome with high GC content and hundreds of repetitive sections, each longer than 1kb. While short-read sequencing has been unable to resolve the structure of the genome, long-read sequencing could enable accurate single-contig *B. pertussis* assembly.  
