@@ -2,10 +2,10 @@
 
 **Natalie Ring, Jonathan Abrahams, Miten Jain, Hugh Olsen, Andrew Preston \& Stefan Bagby**      
 
-This repository is currently an almost-complete work-in-progress, but will support our paper. Content will include:
+This repository is currently an almost-complete work-in-progress to support our paper. Content will include:
 - [ ] our full methodology, including any homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines (hybrid or long-read-only)
 - [ ] links to our data repository, including raw and processed reads (fastq), and genome assembler test intermediates and final assemblies
-- [ ] extended results and links to full metadata/supplementary files
+- [ ] extended results (where applicable) and links to full metadata/supplementary files
 
 
 
