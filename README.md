@@ -41,8 +41,10 @@ Each of the tools we used can be further optimised; we tended to use the default
 
 ### Nanopore-assembly
 **[ABruijn/Flye](https://github.com/fenderglass/Flye)**  
-`flye --nano-corr corrected_reads.fasta --genome-size 4.1m --out-dir output_directory --threads 8`
+`flye --nano-corr corrected_reads.fasta --genome-size 4.1m --out-dir output_directory --threads 8` 
+
 OR
+
 `abruijn -t 8 -p nano corrected_reads.fasta out_directory 40`
 
 **[Canu](https://github.com/marbl/canu)**  
@@ -53,17 +55,17 @@ OR
 
 `miniasm -f corrected_reads.fasta reads.paf.gz > output.gfa`
 
-The output gfa graph file was converted to fasta using [gfa2fasta](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/gfa2fasta)
+The output gfa graph file was converted to fasta using [gfa2fasta](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/gfa2fasta)  
 `gfa2fasta output.gfa output.fasta`
 
-**[Unicycler (long reads only)](https://github.com/rrwick/Unicycler)**
+**[Unicycler (long reads only)](https://github.com/rrwick/Unicycler)** 
 `unicycler -l corrected_reads.fasta -o output_directory -t 8`
 
 ### Hybrid assembly
-**[SPAdes](http://cab.spbu.ru/software/spades/)**
+**[SPAdes](http://cab.spbu.ru/software/spades/)**  
 `spades.py -1 output_1_pe.fastq -2 output_2_pe.fastq --nanopore corrected_reads.fasta --threads 8 -o output_directory`
 
-**[Unicycler (hybrid mode)](https://github.com/rrwick/Unicycler)**
+**[Unicycler (hybrid mode)](https://github.com/rrwick/Unicycler)**  
 `unicycler unicycler -1 output_1_pe.fastq -2 output_2_pe.fastq -l corrected_reads.fasta -o output_directory -t 8`
 
 
