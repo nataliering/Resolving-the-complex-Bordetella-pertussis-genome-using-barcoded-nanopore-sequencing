@@ -39,7 +39,7 @@ Each of the tools we used can be further optimised; we tended to use the default
 **[Canu correct (40x coverage)](https://github.com/marbl/canu)**  
 `canu -correct -p output_prefix -d output_directory genomeSize=4.1m -nanopore-raw input_reads.fastq`
 
-### Nanopore-assembly
+### Nanopore-only assembly
 **[ABruijn/Flye](https://github.com/fenderglass/Flye)**  
 `flye --nano-corr corrected_reads.fasta --genome-size 4.1m --out-dir output_directory --threads 8` 
 
