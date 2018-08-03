@@ -15,7 +15,7 @@ fi
 dt=`date '+%d/%m/%Y %H:%M:%S'`
 echo "$dt"
 echo "Running nanopolish index"
-~/software/nanopolish/nanopolish index -d $1 -s $2 S3
+nanopolish index -d $1 -s $2 S3
 dt=`date '+%d/%m/%Y %H:%M:%S'`
 echo "$dt"
 echo "Running bwa index"
@@ -32,9 +32,9 @@ rm *.fai
 dt=`date '+%d/%m/%Y %H:%M:%S'`
 echo "$dt"
 echo "Running parallel nanopolishing"
-python ~/software/nanopolish/scripts/nanopolish_makerange.py $4 | parallel --results nanopolish.results -P 8 \
-    ~/software/nanopolish/nanopolish variants --consensus polished.{1}.fa -w {1} -r $3 -b reads.sorted.bam -g $3 -t 4 --methylation-aware=dcm,dam
+python nanopolish_makerange.py $4 | parallel --results nanopolish.results -P 8 \
+    nanopolish variants --consensus polished.{1}.fa -w {1} -r $3 -b reads.sorted.bam -g $3 -t 4 --methylation-aware=dcm,dam
 dt=`date '+%d/%m/%Y %H:%M:%S'`
 echo "$dt"
 echo "Merging parallel fasta files"
-python ~/software/nanopolish/scripts/nanopolish_merge.py polished.*.fa > $5
+python nanopolish_merge.py polished.*.fa > $5
