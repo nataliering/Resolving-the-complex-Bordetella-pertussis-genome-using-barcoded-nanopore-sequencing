@@ -69,7 +69,12 @@ The output gfa graph file was converted to fasta using [gfa2fasta](https://githu
 `unicycler unicycler -1 output_1_pe.fastq -2 output_2_pe.fastq -l corrected_reads.fasta -o output_directory -t 8`
 
 
+### Polishing (long and short reads)
+**[Racon](https://github.com/isovic/racon)**  
+We used Minimap to map the Nanopore (or Illumina) reads to each draft, then used the alignment file to run Racon. [racon_runner](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/racon_runner) automatically carries out the required steps.
 
+**[Pilon](https://github.com/broadinstitute/pilon)**  
+We used bwa mem to produce map the Illumina reads to each draft, processed the output alignment using samtools, then used the processed alignment file to run Pilon. [pilon_runner](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/pilon_runner) automatically carries out the required steps.
 
 
 
