@@ -11,6 +11,6 @@ if [ "$1" == "--help" ] ; then
 fi
 
 echo "Running minimap"
-minimap $1.fasta $2 > $1.paf
+minimap2 -x ava-ont $1.fasta $2 > $1.paf
 echo "Running racon"
 racon -t 8 $2 $1.paf $1.fasta > $3
