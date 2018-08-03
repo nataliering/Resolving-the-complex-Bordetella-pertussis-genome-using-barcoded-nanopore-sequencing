@@ -15,7 +15,24 @@ The genome of *Bordetella pertussis* is complex, with high GC content and many r
 Each of the tools we used can be further optimised; we tended to use the default settings in most cases, often exactly as recommended in the tool's README.
 ### Preparing Illumina reads and assembling Illumina-only references
 **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)**  
-`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIGING WINDOW:4:32` 
+`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIGING WINDOW:4:32`
+**[ABySS](https://github.com/bcgsc/abyss)**  
+`abyss-pe name=output_name k=63 in='input_1_PE.fastq input_2_PE.fastq' t=8` 
+
+### Preparing Nanopore reads
+**[Albacore](https://community.nanoporetech.com/protocols/albacore-offline-basecalli/v/abec_2003_v1_revan_29nov2016/linux)** (Nanopore community account needed)  
+`read_fast5_basecaller.py --flowcell FLO-MIN106 --kit SQK-LSK108 --barcoding --output_format fast5,fastq --input directory_of_fast5_files --save_path directory_for_output --worker_threads 8`
+**[Porechop](https://github.com/rrwick/Porechop)  
+`porechop -i input_directory -b output-directory --threads 8`
+**[Filtlong (100x coverage)](https://github.com/rrwick/Filtlong)  
+`filtlong --target_bases 400000000 input_reads.fastq > filtered_100.fastq`
+**[Filtlong (40x coverage)](https://github.com/rrwick/Filtlong)  
+`filtlong --target_bases 160000000 input_reads.fastq > filtered_40.fastq`
+**[Canu correct (40x coverage)](https://github.com/marbl/canu)  
+`canu -correct -p output_prefix -d output_directory genomeSize=4.1m -nanopore-raw input_reads.fastq`
+
+
+
 
 ## Method
 ### Flow cell trials        
