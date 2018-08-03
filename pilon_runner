@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: pilon_runner <in.fasta> <illumina_prefix (e.g. strain, assume followed by .illumina_x.fastq)> <out_prefix>"
+    exit 0
+fi
+if [ "$1" == "--help" ] ; then
+    echo "Usage: pilon_runner <in_fasta> <illumina_prefix (e.g. strain, assume followed by .illumina_x.fastq)> <out_prefix> "
+    exit 0
+fi
+
+echo "bwa indexing"
+bwa index $1
+echo "bwa memming"
+bwa mem -t 8 $1 $2.illumina_1.fastq $2.illumina_2.fastq | samtools sort > aln.bam
+echo "samtools indexing"
+samtools index aln.bam
+echo "samtools faidxing"
+samtools faidx $1
+echo "piloning"
+java -jar pilon-1.22.jar --genome $1 --frags aln.bam --output $3.pilon --fix all --mindepth 0.5 --changes --verbose --threads 8
+
