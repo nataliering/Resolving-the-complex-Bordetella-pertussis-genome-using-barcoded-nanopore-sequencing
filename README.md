@@ -47,7 +47,9 @@ OR
 
 **[Miniasm (with Minimap)](https://github.com/lh3/miniasm)**  
 `minimap -x ava-ont -t8 corrected_reads.fasta corrected_reads.fasta | gzip -1 > reads.paf.gz`
+
 `miniasm -f corrected_reads.fasta reads.paf.gz > output.gfa`
+
 The output gfa graph file was converted to fasta using [gfa2fasta](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/gfa2fasta)
 `gfa2fasta output.gfa output.fasta`
 
