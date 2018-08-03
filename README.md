@@ -112,12 +112,7 @@ Our scripts/tool runners require the following tools to be available in your PAT
 **tblastn_runner:** [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)  
 
 
-
-
-
-
-
-## Supplemtary results
+## Supplementary results
 ### Flow cell trials        
 We ran five different MinION flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells (see table 1). Having established that the yield of a single R9.4 flow cell would enable the sequencing of multiple strains per flow cell with the use of barcodes, we took forward highest quality barcoded read set (in terms of yield, % identity, etc.) to the assembly tests described in our manuscript.
 
