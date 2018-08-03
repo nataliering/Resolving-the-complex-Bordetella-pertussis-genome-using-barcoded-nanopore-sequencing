@@ -20,7 +20,7 @@ Each of the tools we used can be further optimised; we tended to use the default
 `fastq-dump ACCESSION_NUMBER --gzip`
 
 **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)**  
-`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIDING WINDOW:4:32`
+`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIDING WINDOW:4:20`
 
 **[ABySS](https://github.com/bcgsc/abyss)**  
 `abyss-pe name=output_name k=63 in='input_1_PE.fastq input_2_PE.fastq' t=8` 
@@ -129,30 +129,27 @@ We ran five different MinION flow cell trials between 2015 and 2017, using both 
 |June 2017|R9.4|1D Native barcoding genomic DNA (EXP-NBD103 and SQK-LSK108) (half of each sample underwent end-repair)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 
 
-## Results
-
-Full results from all assembler combinations for both MinKNOW and Albacore basecalled reads can be viewed/downloaded [here](https://figshare.com/s/8cab70ab692ef95ce794).
 
 ## Data repository links:
 ### Raw read sets
-[Raw MinKNOW + Porechop reads](https://figshare.com/s/5e9cfe31ee97a3591f8c)                     
-[Raw Albacore only reads](https://figshare.com/s/c72019ace881bfa69593)                             
-[Raw Albacore + Porechop reads](https://figshare.com/s/4a2a376c8d4d130b3ecb)                      
+[Raw MinKNOW + Porechop reads](https://doi.org/10.6084/m9.figshare.6323099.v2)                     
+[Raw Albacore only reads](https://doi.org/10.6084/m9.figshare.6302042.v1)                             
+[Raw Albacore + Porechop reads](https://doi.org/10.6084/m9.figshare.6294791.v2)                      
 
 ### Processed read sets
-[MinKNOW Canu-corrected reads]()                     
+[Trimmed Illumina reads](https://doi.org/10.6084/m9.figshare.6833492.v1)                   
 [Albacore + Porechop Canu-corrected reads]()                    
 [MinKNOW Filtlong 40X reads]()                      
-[MinKNOW Filtlong 100X reads]()                              
+[MinKNOW Filtlong 100X reads]() 
+
+### [Reference sequences (i.e. Illumina-only contigs, IS element sequences, etc.)](https://doi.org/10.6084/m9.figshare.6462446.v2 )
+
 
 ### Draft assemblies
-[UK36 MinKNOW assemblies]()               
-[UK36 Albacore assemblies]()
+[UK36 Nanopore-only assemblies](https://doi.org/10.6084/m9.figshare.6462767.v1)               
+[UK36 Hybrid assemblies](https://doi.org/10.6084/m9.figshare.6462773.v3)
 
 ### Final assemblies
-[Long-read-only assemblies]()               
-[Hybrid assemblies]()
+[Long-read-only assemblies](https://doi.org/10.6084/m9.figshare.6670721.v1)               
+[Hybrid assemblies](https://doi.org/10.6084/m9.figshare.6670454.v3)
 
-## References
-1. [Sealey KL, Harris SR, Fry NK, Hurst LD, Gorringe AR et al. Genomic analysis of isolates from the United Kingdom 2012 pertussis outbreak reveals that vaccine antigen genes are unusually fast evolving. The Journal of infectious diseases 2015;212(2):294-301](https://academic.oup.com/jid/article/212/2/294/890134])
-2. [Wick RR, Judd LM, Holt KE. Comparison of Oxford Nanopore basecalling tools. 2017.](https://github.com/rrwick/Basecalling-comparison)
