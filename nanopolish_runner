@@ -1,0 +1,40 @@
+#! /bin/bash
+
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: run_nanopolish <directory_of_fast5s> <path/to/sequencing_summary.txt> <reads_from_albacore.fasta> <draft_assembly.fasta> <polished_output.fasta>"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: run_nanopolish <directory_of_fast5s> <path/to/sequencing_summary.txt> <reads_from_albacore.fasta> <draft_assembly.fasta> <polished_output.fasta>"
+    exit 0
+fi
+
+
+dt=`date '+%d/%m/%Y %H:%M:%S'`
+echo "$dt"
+echo "Running nanopolish index"
+~/software/nanopolish/nanopolish index -d $1 -s $2 S3
+dt=`date '+%d/%m/%Y %H:%M:%S'`
+echo "$dt"
+echo "Running bwa index"
+bwa index $4
+dt=`date '+%d/%m/%Y %H:%M:%S'`
+echo "$dt"
+echo "Running bwa mem"
+bwa mem -x ont2d -t 8 $4 $3 | samtools sort -o reads.sorted.bam -T reads.tmp
+dt=`date '+%d/%m/%Y %H:%M:%S'`
+echo "$dt"
+echo "Running samtools index"
+samtools index reads.sorted.bam
+rm *.fai
+dt=`date '+%d/%m/%Y %H:%M:%S'`
+echo "$dt"
+echo "Running parallel nanopolishing"
+python ~/software/nanopolish/scripts/nanopolish_makerange.py $4 | parallel --results nanopolish.results -P 8 \
+    ~/software/nanopolish/nanopolish variants --consensus polished.{1}.fa -w {1} -r $3 -b reads.sorted.bam -g $3 -t 4 --methylation-aware=dcm,dam
+dt=`date '+%d/%m/%Y %H:%M:%S'`
+echo "$dt"
+echo "Merging parallel fasta files"
+python ~/software/nanopolish/scripts/nanopolish_merge.py polished.*.fa > $5
