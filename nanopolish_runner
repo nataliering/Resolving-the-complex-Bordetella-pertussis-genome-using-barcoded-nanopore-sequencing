@@ -2,12 +2,12 @@
 
 
 if [ "$1" == "-h" ] ; then
-    echo "Usage: run_nanopolish <directory_of_fast5s> <path/to/sequencing_summary.txt> <reads_from_albacore.fasta> <draft_assembly.fasta> <polished_output.fasta>"
+    echo "Usage: run_nanopolish <directory_of_fast5s> <path/to/sequencing_summary.txt> <reads_from_albacore.fasta> <draft_assembly.fasta> <output_name.fasta>"
     exit 0
 fi
 
 if [ "$1" == "--help" ] ; then
-    echo "Usage: run_nanopolish <directory_of_fast5s> <path/to/sequencing_summary.txt> <reads_from_albacore.fasta> <draft_assembly.fasta> <polished_output.fasta>"
+    echo "Usage: run_nanopolish <directory_of_fast5s> <path/to/sequencing_summary.txt> <reads_from_albacore.fasta> <draft_assembly.fasta> <output_name.fasta>"
     exit 0
 fi
 
