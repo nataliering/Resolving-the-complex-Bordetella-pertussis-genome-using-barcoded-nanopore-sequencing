@@ -84,7 +84,7 @@ We used bwa mem to produce map the Illumina reads to each draft, processed the o
 `BUSCO.py -i assembly.fasta -o output_name -l path/to/bacteria_db -m geno`
 
 ### Draft annotation
-**[Prokka](https://github.com/tseemann/prokka)**
+**[Prokka](https://github.com/tseemann/prokka)**  
 `prokka --prefix prefix --addgenes --centre centre_name --compliant --genus Bordetella --species pertussis --kingdom Bacteria --usegenus --proteins reference_proteins.faa --evalue 1e-10 --rfam --cpus 8  assembly.fasta --force`
 
 
