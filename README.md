@@ -51,7 +51,7 @@ OR
 `canu -p output_prefix -d output_directory genomeSize=4.1m -nanopore-raw input_reads.fastq`
 
 **[Miniasm (with Minimap)](https://github.com/lh3/miniasm)**  
-`minimap -x ava-ont -t8 corrected_reads.fasta corrected_reads.fasta | gzip -1 > reads.paf.gz`
+`minimap2 -x ava-ont -t8 corrected_reads.fasta corrected_reads.fasta | gzip -1 > reads.paf.gz`
 
 `miniasm -f corrected_reads.fasta reads.paf.gz > output.gfa`
 
@@ -100,6 +100,18 @@ Our scripts/tool runners require the following tools to be available in your PAT
 **nanopolish_runner:** [nanopolish](https://github.com/jts/nanopolish)(including nanopolish index, nanopolish_makerange.py, nanopolish variants and nanopolish_merge.py), [GNU parallel](https://www.gnu.org/software/parallel/), [bwa](https://github.com/lh3/bwa), [samtools](https://github.com/samtools/)  
 
 **pilon_runner:** [bwa](https://github.com/lh3/bwa), [samtools](https://github.com/samtools/), [Pilon](https://github.com/broadinstitute/pilon)  
+
+**racon_runner:** [minimap2](https://github.com/lh3/minimap2), [Racon](https://github.com/isovic/racon)
+
+**raw_error:** [bwa](https://github.com/lh3/bwa), [samtools](https://github.com/samtools/)
+
+**reverse_complement:**  [python](https://www.python.org/)
+
+**summary_stats:** [seq_length.py](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/seq_length.py), [python](https://www.python.org/), [all_stats](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/all_stats)
+
+**tblastn_runner:** [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)  
+
+
 
 
 
