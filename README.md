@@ -14,6 +14,9 @@ The genome of *Bordetella pertussis* is complex, with high GC content and many r
 ## Commands for tools mentioned in manuscript
 Each of the tools we used can be further optimised; we tended to use the default settings in most cases, often exactly as recommended in the tool's README.
 ### Preparing Illumina reads and assembling Illumina-only references
+**[fastq-dump (download of reads from SRA)](https://ncbi.github.io/sra-tools/fastq-dump.html)**
+`fastq-dump ACCESSION_NUMBER --gzip`
+
 **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)**  
 `java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIGING WINDOW:4:32`
 
@@ -52,6 +55,17 @@ OR
 
 The output gfa graph file was converted to fasta using [gfa2fasta](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/gfa2fasta)
 `gfa2fasta output.gfa output.fasta`
+
+**[Unicycler (long reads only)](https://github.com/rrwick/Unicycler)**
+`unicycler -l corrected_reads.fasta -o output_directory -t 8`
+
+### Hybrid assembly
+**[SPAdes](http://cab.spbu.ru/software/spades/)**
+`spades.py -1 output_1_pe.fastq -2 output_2_pe.fastq --nanopore corrected_reads.fasta --threads 8 -o output_directory`
+
+**[Unicycler (hybrid mode)](https://github.com/rrwick/Unicycler)**
+`unicycler unicycler -1 output_1_pe.fastq -2 output_2_pe.fastq -l corrected_reads.fasta -o output_directory -t 8`
+
 
 
 
