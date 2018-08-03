@@ -1,0 +1,15 @@
+#! /bin/bash
+#Code modified from Heng Li at https://www.biostars.org/p/169516/
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: gfa2fasta.sh <input.gfa> <output.fasta> [-h]"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: gfa2fasta.sh <input.gfa> <output.fasta> [-h]"
+    exit 0
+fi
+
+
+awk '/^S/{print">"$2"\n"$3}' $1 | fold > $2
