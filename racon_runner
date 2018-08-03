@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: racon_runner <in_prefix> <reads.fastq> <out.fasta>"
+    exit 0
+fi
+
+if [ "$1" == "--help" ] ; then
+    echo "Usage: racon_runner <in_prefix> <reads.fastq> <out.fasta>"
+    exit 0
+fi
+
+echo "Running minimap"
+minimap $1.fasta $2 > $1.paf
+echo "Running racon"
+racon -t 8 $2 $1.paf $1.fasta > $3
