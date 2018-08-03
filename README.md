@@ -18,7 +18,7 @@ Each of the tools we used can be further optimised; we tended to use the default
 `fastq-dump ACCESSION_NUMBER --gzip`
 
 **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)**  
-`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIGING WINDOW:4:32`
+`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIDING WINDOW:4:32`
 
 **[ABySS](https://github.com/bcgsc/abyss)**  
 `abyss-pe name=output_name k=63 in='input_1_PE.fastq input_2_PE.fastq' t=8` 
@@ -58,7 +58,7 @@ OR
 The output gfa graph file was converted to fasta using [gfa2fasta](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/gfa2fasta)  
 `gfa2fasta output.gfa output.fasta`
 
-**[Unicycler (long reads only)](https://github.com/rrwick/Unicycler)** 
+**[Unicycler (long reads only)](https://github.com/rrwick/Unicycler)**  
 `unicycler -l corrected_reads.fasta -o output_directory -t 8`
 
 ### Hybrid assembly
