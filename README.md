@@ -24,17 +24,34 @@ Each of the tools we used can be further optimised; we tended to use the default
 **[Albacore](https://community.nanoporetech.com/protocols/albacore-offline-basecalli/v/abec_2003_v1_revan_29nov2016/linux)** (Nanopore community account needed)  
 `read_fast5_basecaller.py --flowcell FLO-MIN106 --kit SQK-LSK108 --barcoding --output_format fast5,fastq --input directory_of_fast5_files --save_path directory_for_output --worker_threads 8`
 
-**[Porechop](https://github.com/rrwick/Porechop)  
+**[Porechop](https://github.com/rrwick/Porechop)**  
 `porechop -i input_directory -b output-directory --threads 8`
 
-**[Filtlong (100x coverage)](https://github.com/rrwick/Filtlong)  
+**[Filtlong (100x coverage)](https://github.com/rrwick/Filtlong)**  
 `filtlong --target_bases 400000000 input_reads.fastq > filtered_100.fastq`
 
-**[Filtlong (40x coverage)](https://github.com/rrwick/Filtlong)  
+**[Filtlong (40x coverage)](https://github.com/rrwick/Filtlong)**  
 `filtlong --target_bases 160000000 input_reads.fastq > filtered_40.fastq`
 
-**[Canu correct (40x coverage)](https://github.com/marbl/canu)  
+**[Canu correct (40x coverage)](https://github.com/marbl/canu)**  
 `canu -correct -p output_prefix -d output_directory genomeSize=4.1m -nanopore-raw input_reads.fastq`
+
+### Nanopore-assembly
+**[ABruijn/Flye](https://github.com/fenderglass/Flye)**  
+`flye --nano-corr corrected_reads.fasta --genome-size 4.1m --out-dir output_directory --threads 8`
+OR
+`abruijn -t 8 -p nano corrected_reads.fasta out_directory 40`
+
+**[Canu](https://github.com/marbl/canu)**  
+`canu -p output_prefix -d output_directory genomeSize=4.1m -nanopore-raw input_reads.fastq`
+
+**[Miniasm (with Minimap)](https://github.com/lh3/miniasm)**  
+`minimap -x ava-ont -t8 corrected_reads.fasta corrected_reads.fasta | gzip -1 > reads.paf.gz`
+`miniasm -f corrected_reads.fasta reads.paf.gz > output.gfa`
+The output gfa graph file was converted to fasta using [gfa2fasta](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/gfa2fasta)
+`gfa2fasta output.gfa output.fasta`
+
+
 
 
 
