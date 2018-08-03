@@ -83,9 +83,14 @@ We used bwa mem to produce map the Illumina reads to each draft, processed the o
 **[BUSCO](https://busco.ezlab.org/)**  
 `BUSCO.py -i assembly.fasta -o output_name -l path/to/bacteria_db -m geno`
 
+### Draft annotation
+**[Prokka](https://github.com/tseemann/prokka)**
+`prokka --prefix prefix --addgenes --centre centre_name --compliant --genus Bordetella --species pertussis --kingdom Bacteria --usegenus --proteins reference_proteins.faa --evalue 1e-10 --rfam --cpus 8  assembly.fasta --force`
 
 
-## Method
+
+
+## Supplemtary Methods
 ### Flow cell trials        
 We ran five different MinION flow cell trials between 2015 and 2017, using both R7 and R9/R9.4 flow cells (see table 1). Having established that the yield of a single R9.4 flow cell would enable the sequencing of multiple strains per flow cell with the use of barcodes, we took forward highest quality barcoded read set (in terms of yield, % identity, etc.) to assembly tests.
 
