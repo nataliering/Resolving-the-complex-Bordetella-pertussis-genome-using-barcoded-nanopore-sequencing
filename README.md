@@ -73,6 +73,9 @@ The output gfa graph file was converted to fasta using [gfa2fasta](https://githu
 **[Racon](https://github.com/isovic/racon)**  
 We used Minimap to map the Nanopore (or Illumina) reads to each draft, then used the alignment file to run Racon. [racon_runner](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/racon_runner) automatically carries out the required steps.
 
+**[Nanopolish](https://github.com/jts/nanopolish)**  
+We used included Nanopolish in our Nanopore-only pipeline. Nanopolish requires access to the raw fast5 files, and ideally the index file produced during Albacore basecalling. The raw fast5 files were too large to share on figshare, but assuming you have access to the required files, [nanopolish_runner](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/nanopolish_runner) will carry out all the required steps (N.B. major changes to the way Nanopolish runs mean that nanopolish_runner won't work version 0.10.1 onwards of Nanopolish. However, Nanopolish has thorough documentation which explains how to use the newer versions).
+
 **[Pilon](https://github.com/broadinstitute/pilon)**  
 We used bwa mem to produce map the Illumina reads to each draft, processed the output alignment using samtools, then used the processed alignment file to run Pilon. [pilon_runner](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/pilon_runner) automatically carries out the required steps.
 
