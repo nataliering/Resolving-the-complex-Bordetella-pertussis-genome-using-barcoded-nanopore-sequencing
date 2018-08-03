@@ -14,7 +14,7 @@ The genome of *Bordetella pertussis* is complex, with high GC content and many r
 ## Commands for tools mentioned in manuscript
 Each of the tools we used can be further optimised; we tended to use the default settings in most cases, often exactly as recommended in the tool's README.
 ### Preparing Illumina reads and assembling Illumina-only references
-**[fastq-dump (download of reads from SRA)](https://ncbi.github.io/sra-tools/fastq-dump.html)**
+**[fastq-dump (download of reads from SRA)](https://ncbi.github.io/sra-tools/fastq-dump.html)**  
 `fastq-dump ACCESSION_NUMBER --gzip`
 
 **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)**  
