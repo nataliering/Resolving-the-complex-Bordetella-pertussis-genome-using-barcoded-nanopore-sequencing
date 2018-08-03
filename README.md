@@ -91,7 +91,8 @@ We used bwa mem to produce map the Illumina reads to each draft, processed the o
 `prokka --prefix prefix --addgenes --centre centre_name --compliant --genus Bordetella --species pertussis --kingdom Bacteria --usegenus --proteins reference_proteins.faa --evalue 1e-10 --rfam --cpus 8  assembly.fasta --force`
 
 ## Dependencies for our scripts
-Our scripts/tool runners require the following tools to be available in your PATH:
+Our scripts/tool runners require the following tools to be available in your PATH:  
+
 **Assembly_identity:** [chop_up_assembly.py](https://github.com/rrwick/Basecalling-comparison/blob/master/chop_up_assembly.py), [minimap2](https://github.com/lh3/minimap2), [python3](https://www.python.org/download/releases/3.0/)  
 
 **gidA_blast:** [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)  
