@@ -76,6 +76,12 @@ We used Minimap to map the Nanopore (or Illumina) reads to each draft, then used
 **[Pilon](https://github.com/broadinstitute/pilon)**  
 We used bwa mem to produce map the Illumina reads to each draft, processed the output alignment using samtools, then used the processed alignment file to run Pilon. [pilon_runner](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/pilon_runner) automatically carries out the required steps.
 
+### Assessing assembly quality
+**[Quast](http://quast.sourceforge.net/quast)**  
+`quast.py assembly1.fasta assembly2.fasta (etc) --output-dir output_directory --threads 8 -R reference_genome.fasta -G reference_genes.gff`
+
+**[BUSCO](https://busco.ezlab.org/)**  
+`BUSCO.py -i assembly.fasta -o output_name -l path/to/bacteria_db -m geno`
 
 
 
