@@ -140,7 +140,7 @@ We ran five different MinION flow cell trials between 2015 and 2017, using both 
 [Trimmed Illumina reads](https://doi.org/10.6084/m9.figshare.6833492.v1)                   
 [Canu-corrected reads](https://doi.org/10.6084/m9.figshare.6932795)                    
 [Filtlong 40X reads](https://doi.org/10.6084/m9.figshare.6932882)                      
-[Filtlong 100X reads]() 
+[Filtlong 100X reads](https://doi.org/10.6084/m9.figshare.6934307) 
 
 ### [Reference sequences (i.e. Illumina-only contigs, IS element sequences, etc.)](https://doi.org/10.6084/m9.figshare.6462446.v2 )
 
