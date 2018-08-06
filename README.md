@@ -3,9 +3,11 @@
 This repository supports our paper, which is currently available as a preprint from BioRXiv: https://www.biorxiv.org/content/early/2018/08/03/381640. 
 
 Content includes:
-- homemade code and commands used for community-built tools, plus a shell script to run either of our final pipelines (hybrid or long-read-only)
+- homemade code and commands used for community-built tools
 - links to our data repository, including raw and processed reads (fastq), and genome assembler test intermediates and final assemblies
 - supplementary results and links to full metadata/supplementary files
+
+A shell script to run either of our final pipelines (hybrid or long-read-only) could be made available; let us know if this is something you would use!
 
 
 
