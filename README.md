@@ -128,6 +128,8 @@ We ran five different MinION flow cell trials between 2015 and 2017, using both 
 |June 2017|R9.4|1D Low input genomic DNA by PCR barcoding (SQK-LWB001)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 |June 2017|R9.4|1D Native barcoding genomic DNA (EXP-NBD103 and SQK-LSK108) (half of each sample underwent end-repair)| UK36, UK38, UK39, UK48, UK76|MinKNOW v.Jun17|
 
+[alt text](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/Github_fig1.png)
+
 
 
 ## Data repository links:
