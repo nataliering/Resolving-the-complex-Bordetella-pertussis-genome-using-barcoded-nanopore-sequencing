@@ -22,7 +22,7 @@ Each of the tools we used can be further optimised; we tended to use the default
 `fastq-dump ACCESSION_NUMBER --gzip`
 
 **[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)**  
-`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIDING WINDOW:4:32`
+`java -jar trimmomatic.jar PE input_1.fastq input_2.fastq output_1_PE.fastq output_1_SE.fastq output_2_PE.fastq output_2_SE.fastq HEADCROP:10 SLIDINGWINDOW:4:32`
 
 **[ABySS](https://github.com/bcgsc/abyss)**  
 `abyss-pe name=output_name k=63 in='input_1_PE.fastq input_2_PE.fastq' t=8` 
