@@ -17,3 +17,5 @@ sort -n | awk '
     { printf ("Median:\t""%'"'"'d\n", median)}
     { printf ("Min:\t""%'"'"'d\n", a[0])}
     { printf ("Max:\t""%'"'"'d\n", a[c-1])}
+  }
+'
