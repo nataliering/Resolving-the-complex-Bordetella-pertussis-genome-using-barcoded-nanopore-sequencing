@@ -1,6 +1,6 @@
 # Resolving the complex *Bordetella pertussis* genome using barcoded nanopore sequencing
 
-This repository supports our paper, which is currently available as a preprint from BioRXiv: https://www.biorxiv.org/content/early/2018/08/03/381640. 
+This repository supports our paper, which is now published in Microbial Genomics: https://mgen.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000234 
 
 Content includes:
 - homemade code and commands used for community-built tools
