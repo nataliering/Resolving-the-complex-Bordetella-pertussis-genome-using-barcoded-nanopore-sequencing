@@ -2,6 +2,12 @@
 
 This repository supports our paper, which is now published in Microbial Genomics: https://mgen.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000234 
 
+Posters related to this work:
+[London Calling (annual Nanopore meeting), London, May 2018](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/Poster_London_Calling_May2018.pdf)
+[International Bordetella Symposium, Brussels, April 2019](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/Poster_International_Bordetella_Symposium_April2019.pdf)
+
+**[fastq-dump (download of reads from SRA)](https://ncbi.github.io/sra-tools/fastq-dump.html)**  
+
 Content includes:
 - homemade code and commands used for community-built tools
 - links to our data repository, including raw and processed reads (fastq), and genome assembler test intermediates and final assemblies
