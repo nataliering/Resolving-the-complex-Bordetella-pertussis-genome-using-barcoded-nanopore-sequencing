@@ -8,7 +8,6 @@ This repository supports our paper, which is now published in Microbial Genomics
 
 [International Bordetella Symposium, Brussels, April 2019](https://github.com/nataliering/Resolving-the-complex-Bordetella-pertussis-genome-using-barcoded-nanopore-sequencing/blob/master/Poster_International_Bordetella_Symposium_April2019.pdf)
 
-**[fastq-dump (download of reads from SRA)](https://ncbi.github.io/sra-tools/fastq-dump.html)**  
 
 Content includes:
 - homemade code and commands used for community-built tools
